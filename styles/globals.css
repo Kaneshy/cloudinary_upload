@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,44 +18,49 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 .container {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  max-width: 80rem;
-  min-height: 100vh;
-  padding: 0 2rem;
   margin: 0 auto;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  min-width: 100%;
   text-align: center;
-  padding: 2rem 0;
 }
 
 .title {
   margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3rem;
+  font-family: Agbalumo;
+  color: #584a55
 }
 
 .description {
-  margin: 4rem 0;
+  margin: 1rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.btn-header,
+.inputheader {
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  margin-top: 0;
+  max-width: 500px;
+  width: 90%;
+  
 }
 
 .form {
@@ -65,6 +72,7 @@ body {
     border: solid 1px gray;
     border-radius: .5em;
   }
+
 
   button {
     color: white;
@@ -81,11 +89,134 @@ body {
 
 }
 
-.footer {
+.containerCard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #181818;
+  height: auto;
+  min-height: 90vh;
+  padding-bottom: 50px;
+}
+
+.img-card {
   display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+.img-card img {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 20px;
+  max-height: 650px;
+  min-height: 500px;
+  width: auto;
+  margin: 25px 0;
+}
+
+.containerCard h1 {
+  font-size: 40px;
+  padding: 30px 0;
+  font-family: 'Agbalumo';
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90%;
+  margin: 0 auto;
+  gap: 40px;
+  background-color: #000000;
+  margin-top: 25px;
+}
+
+.code {
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  background-color: #584a55;
+}
+
+.info-card-short {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  gap: 15px;
+
+}
+
+@media (max-width: 650px) {
+  .containerCard {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 0;
+  }
+
+
+  .inputheader {
+    width: 90%;
+  }
+  .info-card {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .img-card img {
+    box-shadow: none;
+    border-radius: 0;
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    max-height: none;
+    min-height: none;
+  }
+
+  .btn-header {
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-top: 0;
+    width: 90%;
+    margin-top: 50px;
+
+  }
+
+
+}
+
+
+
+.footerA {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: white;
+  color: rgb(255, 255, 255) ;
+  background-color: #252225;
+  padding: 30px;
+}
+
+.footerA ol li a {
+  color: rgb(223, 223, 223);
+  font-size: small;
+}
+
+
+
+@media (max-width: 500px) {
+  .footerA {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .formmedia {
+      width: 100%;
+      border-radius: 0;
+  }
 }

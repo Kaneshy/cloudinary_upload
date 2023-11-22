@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import { useState } from 'react';
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
   function handleOnChange(changeEvent) {
     const reader = new FileReader();
 
-    reader.onload = function(onLoadEvent) {
+    reader.onload = function (onLoadEvent) {
       setImageSrc(onLoadEvent.target.result);
       setUploadData(undefined);
     }
@@ -24,7 +25,7 @@ export default function Home() {
 
     const formData = new FormData();
 
-    for ( const file of fileInput.files ) {
+    for (const file of fileInput.files) {
       formData.append('file', file);
     }
 
@@ -40,39 +41,40 @@ export default function Home() {
   }
 
   return (
-    <div className='container'>
+    <section className='container'>
+      <h2 className='title'> PIXELART</h2>
 
-      <main className='main'>
-        <h1 className='title'>
-          Image Uploader
-        </h1>
+      <div className='containerCard' >
 
-        <p className='description'>
-          Upload your image to Cloudinary!
-        </p>
-
-        <form className='form' method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
-          <p>
-            <input type="file" name="file" />
+        <div className='info-card'>
+          <p className='description'>
+            CODE
           </p>
-          
-          <img src={imageSrc} />
-          
-          {imageSrc && !uploadData && (
-            <p>
-              <button>Upload Files</button>
-            </p>
-          )}
-
           {uploadData && (
-            <code><pre>{JSON.stringify(uploadData, null, 2)}</pre></code>
+            <div className='code' >
+              <code><pre>{JSON.stringify(uploadData, null, 2)}</pre></code>
+            </div>
           )}
-        </form>
-      </main>
+        </div>
 
-      <footer className='footer'>
-        <p>Find the tutorial on <a href="https://spacejelly.dev/">spacejelly.dev</a>!</p>
-      </footer>
-    </div>
+        <form className='img-card' method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
+
+          <p className='description'>
+            Upload your image here!
+          </p>
+
+          <input className='inputheader' type="file" name="file" />
+
+          <img className='imgheader' src={imageSrc} />
+
+          {imageSrc && !uploadData && (
+            <button className='btn-header'>Upload Image</button>
+          )}
+
+        </form>
+
+      </div>
+      <Footer />
+    </section>
   )
 }
