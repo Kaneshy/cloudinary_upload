@@ -2,7 +2,7 @@ import Footer from '@/components/Footer';
 import { useState } from 'react';
 
 
-export default function Home() {
+export default function indexPage() {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 

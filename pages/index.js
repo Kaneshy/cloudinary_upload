@@ -15,7 +15,7 @@ export const getServerSideProps = async () => {
       // you can add also AND tags=shirt AND uploaded_at>1d AND bytes>1m
       .expression('resource_type:image AND folder=my-uploads')
       .sort_by('uploaded_at', 'desc')
-      .max_results(20)
+      .max_results(30)
       .execute();
     const secureUrls = results.resources.map(resource => resource.secure_url);
     return {
@@ -30,7 +30,7 @@ export const getServerSideProps = async () => {
   }
 }
 
-const indexPage = ({ secureUrls }) => {
+const Home = ({ secureUrls }) => {
 
   return (
     <>
@@ -54,4 +54,4 @@ const indexPage = ({ secureUrls }) => {
   )
 }
 
-export default indexPage
+export default Home
