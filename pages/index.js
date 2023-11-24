@@ -2,27 +2,6 @@ import Footer from '@/components/Footer';
 import UploadImg from '@/components/UploadImg';
 import cloudinary from 'cloudinary'
 
-export default function Home({ secureUrls }) {
-
-  return (
-    <>
-      <UploadImg />
-      <section className='hp-container' >
-        <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
-          <h1  >GALLERY</h1>
-        </div>
-        <div className='pm-grid-container' >
-          {secureUrls && secureUrls.map((url, index) => (
-            <div key={index} className='img-content' >
-              <img src={url} alt={`Imagen ${index}`} />
-            </div>
-          ))}
-        </div>
-      </section>
-      <Footer />
-    </>
-  )
-}
 
 export const getServerSideProps = async () => {
   cloudinary.config({
@@ -50,4 +29,28 @@ export const getServerSideProps = async () => {
     throw error;
   }
 }
+
+
+export default function Home({ secureUrls }) {
+
+  return (
+    <>
+      <UploadImg />
+      <section className='hp-container' >
+        <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
+          <h1  >GALLERY</h1>
+        </div>
+        <div className='pm-grid-container' >
+          {secureUrls && secureUrls.map((url, index) => (
+            <div key={index} className='img-content' >
+              <img src={url} alt={`Imagen ${index}`} />
+            </div>
+          ))}
+        </div>
+      </section>
+      <Footer />
+    </>
+  )
+}
+
 
