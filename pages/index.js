@@ -3,6 +3,32 @@ import UploadImg from '@/components/UploadImg';
 import cloudinary from 'cloudinary'
 
 
+
+
+const Home = ({ secureUrls }) => {
+
+  return (
+    <>
+      <UploadImg />
+      <section className='hp-container' >
+        <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
+          <h1  >GALLERY</h1>
+        </div>
+        <div className='pm-grid-container' >
+          {secureUrls && secureUrls.map((url, index) => (
+            <div key={index} className='img-content' >
+              <img src={url} alt={`Imagen ${index}`} />
+            </div>
+          ))}
+        </div>
+      </section>
+      <Footer />
+    </>
+
+
+  )
+}
+
 export const getServerSideProps = async () => {
   cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -28,30 +54,6 @@ export const getServerSideProps = async () => {
     console.error('Error al obtener los resultados de Cloudinary:', error);
     throw error;
   }
-}
-
-const Home = ({ secureUrls }) => {
-
-  return (
-    <>
-      <UploadImg />
-      <section className='hp-container' >
-        <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
-          <h1  >GALLERY</h1>
-        </div>
-        <div className='pm-grid-container' >
-          {secureUrls && secureUrls.map((url, index) => (
-            <div key={index} className='img-content' >
-              <img src={url} alt={`Imagen ${index}`} />
-            </div>
-          ))}
-        </div>
-      </section>
-      <Footer />
-    </>
-
-
-  )
 }
 
 export default Home

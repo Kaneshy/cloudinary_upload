@@ -1,8 +1,8 @@
-import Footer from '@/components/Footer';
 import { useState } from 'react';
+import Footer from '@/components/Footer';
 
 
-export default function indexPage() {
+function IndexPage() {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 
@@ -79,3 +79,5 @@ export default function indexPage() {
     </section>
   )
 }
+
+export default IndexPage
