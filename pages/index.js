@@ -2,10 +2,7 @@ import Footer from '@/components/Footer';
 import UploadImg from '@/components/UploadImg';
 import cloudinary from 'cloudinary'
 
-
-
-
-const Home = ({ secureUrls }) => {
+export default function Home({ secureUrls }) {
 
   return (
     <>
@@ -24,8 +21,6 @@ const Home = ({ secureUrls }) => {
       </section>
       <Footer />
     </>
-
-
   )
 }
 
@@ -56,4 +51,3 @@ export const getServerSideProps = async () => {
   }
 }
 
-export default Home

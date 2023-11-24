@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Footer from '@/components/Footer';
 
 
-function IndexPage() {
+function homePage() {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 
@@ -80,4 +80,4 @@ function IndexPage() {
   )
 }
 
-export default IndexPage
+export default homePage
