@@ -50,7 +50,7 @@ export default function UploadImg() {
             <h2 className='title'> PIXELART</h2>
 
 
-            <form className='img-card' method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
+            <form className='img-card bg-neutral-950' method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
 
                 <div className='upi-container' >
                     <p className='description'>
@@ -64,11 +64,9 @@ export default function UploadImg() {
                         <button className='btn-header'>Upload Image</button>
                     )}
                 </div>
-                <div>
+                <div className=' bg-neutral-900'>
                     <img className='imgheader' src={imageSrc} />
                 </div>
-
-
             </form>
         </section>
     )
